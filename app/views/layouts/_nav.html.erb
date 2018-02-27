@@ -1,0 +1,27 @@
+
+<nav class="navbar navbar-expand-md bg-dark">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">TaskManager</a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <%= link_to 'Feed', posts_path, :class => "nav-link btn", :style => "width: 100px;" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Profile', 'profiles/profile', :class => "nav-link btn", :style => "width: 100px;" %>
+      </li>
+      <li class="nav-item">
+        <% if user_signed_in? %>
+        <%= link_to 'Sign Out', destroy_user_session_path, :method => 'delete', :class => "nav-link btn", :style => "width: 100px;" %>
+        <% end %>
+      </li>
+    </ul>
+      <%= form_tag 'search', :method => 'get' do%>
+      <%= text_field_tag :search, params[:search] %>
+      <%= "Search" %>
+      <% end %>
+  </div>
+</nav>

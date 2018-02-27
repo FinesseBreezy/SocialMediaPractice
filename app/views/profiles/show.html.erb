@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+<body id="b">
+  <h1>Your Posts</h1>
+  <div class="back">
+    <% @posts.each do |post| %>
+    <div class="bod">
+      <div class="contains" style="background: url(<%= post.image %>), linear-gradient(#B333D9, #33CAD9);">
+        <h1><%= post.title %></h1>
+        <div class="desc">
+          <span>Today is</span><span class="date">14/06/2015</span>
+          <p><%= post.context %></p>
+          <%= link_to(post) do %>
+          <%=image_tag("view.png")%>
+          <% end %>
+          <%= link_to(edit_post_path(post)) do %>
+          <%=image_tag("edit.png")%>
+          <% end %>
+          <%= link_to(post, method: :delete, data: { confirm: 'Are you sure?' }) do %>
+          <%=image_tag("bin.png")%>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </body>
