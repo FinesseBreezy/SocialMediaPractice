@@ -1,28 +1,22 @@
-<!--
-<nav class="navbar navbar-expand-md bg-dark">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <a class="navbar-brand" href="#">TaskManager</a>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <%= link_to 'Feed', posts_path, :class => "nav-link btn", :style => "width: 100px;" %>
-      </li>
-      <li class="nav-item">
-      </li>
-      <li class="nav-item"> -->
-        <% if user_signed_in? %>
-        <%= link_to 'Sign Out', destroy_user_session_path, :method => 'delete', :class => "nav-link btn", :style => "width: 100px;" %>
-        <%= link_to 'Profile', profile_path(current_user.id) %>
-
-        <% end %>
-      <!-- </li>
-    </ul> -->
-      <%= form_tag posts_path, :method => 'get' do%>
-      <%= text_field_tag :search, params[:search]%>
-      <%= submit_tag "Search" %>
-      <% end %>
-  <!-- </div>
-</nav> -->
+<div class="ui top fixed menu">
+  <div class="item">
+    <%= link_to '𝒢𝒶𝓏ō', posts_path %>
+  </div>
+  <% if user_signed_in? %>
+  <%= link_to 'Sign Out', destroy_user_session_path, :class => "item", :method => 'delete' %>
+  <%= link_to 'Profile', profile_path(current_user.id), :class => "item" %>
+  <% else %>
+  <%= link_to 'Sign In', new_user_session_path, :class => "item" %>
+  <% end %>
+  <div class="right menu">
+    <div class="item">
+      <div class="ui transparent icon input">
+        <%= form_tag posts_path, :method => 'get' do%>
+        <%= text_field_tag :search, params[:search], :type => "text", :placeholder => "Search"%>
+        <%= submit_tag "Search", :class => "search link icon" %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

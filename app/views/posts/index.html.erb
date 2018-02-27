@@ -1,36 +1,30 @@
 <p id="notice"><%= notice %></p>
+<body class="ui contianer" id="b" style="text-align: center;">
+  <h1></h1>
+  <h1>Posts</h1>
+  <div class="back">
+    <%= link_to 'New Post', new_post_path, :class => "ui blue button", :style => "width: 100px; font-size: 12px" %>
+    <div class="bod">
+      <% @posts.each do |post| %>
+      <div class="contains" style="background: url(<%= post.image %>), linear-gradient(#B333D9, #33CAD9);">
+        <h1><%= post.title %></h1>
+        <div class="desc">
+          <span>Today is</span><span class="date">14/06/2015</span>
+          <p><%= post.context %></p>
 
-<h1>Posts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Title</th>
-      <th>Context</th>
-      <th>Image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.user_id %></td>
-        <td><%= post.title %></td>
-        <td><%= post.context %></td>
-        <td><%= post.image %></td>
-        <% if post.user_id == current_user.id %>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-      <% else %>
-      <td><%= link_to 'Show', post %></td>
+          <% if post[:user_id] == current_user.id %>
+          <%= link_to(post) do %>
+          <%=image_tag("view.png")%>
+          <% end %>
+          <%= link_to(edit_post_path(post)) do %>
+          <%=image_tag("edit.png")%>
+          <% end %>
+          <%= link_to(post, method: :delete, data: { confirm: 'Are you sure?' }) do %>
+          <%=image_tag("bin.png")%>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
       <% end %>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Post', new_post_path %>
+    </div>
+  </body>

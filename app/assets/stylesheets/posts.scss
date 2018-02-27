@@ -1,3 +1,159 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+//Posts
+.ui#content{
+  // padding should be the same as header height
+  padding-top: 55px;
+}
+.back{
+}
+.bod{
+  height: 100%; width: 100%;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.contains {
+  width: 25%;
+  height: 300px;
+  background-size: 100% !important;
+	background-position: center !important;
+	background-repeat: no-repeat !important;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  overflow: hidden;
+	margin: 20px;
+	border-radius: 5%;
+
+}
+.contains-post {
+  width: 50%;
+  background-size: 100% !important;
+	background-position: center !important;
+	background-repeat: no-repeat !important;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  overflow: hidden;
+	margin: 20px;
+	border-radius: 5%;
+
+}
+.contains-post h1 {
+  margin: auto;
+  width: 105%;
+  -webkit-transform: translateX(-2.5%);
+  text-align: center;
+  padding: .2em 0;
+  border-radius: 2px;
+  color: #2C7261;
+  background: rgba(255, 255, 255, .95);
+  font-size: 3.5em;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  text-shadow: 0 2px white;
+  box-shadow: 0 2px 1px rgba(0,0,0,.1);
+  margin-top: 2em;
+  transition: all 0.3s ease-in-out;
+}
+
+.contains-post .desc {
+  position: relative;
+  top: 150px;
+  background: rgba(255, 255, 255, .95);
+  width: 100%;
+  padding: 1em;
+  letter-spacing: 1.2px;
+  line-height: 1.5em;
+  font-family: sans-serif;
+  margin: 0;
+  transition: all .3s ease-in-out;
+}
+.contains h1 {
+  margin: auto;
+  width: 105%;
+  -webkit-transform: translateX(-2.5%);
+  text-align: center;
+  padding: .2em 0;
+  border-radius: 2px;
+  color: #2C7261;
+  background: rgba(255, 255, 255, .95);
+  font-size: 3.5em;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  text-shadow: 0 2px white;
+  box-shadow: 0 2px 1px rgba(0,0,0,.1);
+  margin-top: 2em;
+  transition: all 0.3s ease-in-out;
+}
+
+.contains .desc {
+  position: relative;
+  top: 150px;
+  background: rgba(255, 255, 255, .95);
+  width: 100%;
+  padding: 1em;
+  letter-spacing: 1.2px;
+  line-height: 1.5em;
+  font-family: sans-serif;
+  margin: 0;
+  transition: all .3s ease-in-out;
+}
+
+.desc span {
+  font-size: .8em;
+  color: gray;
+}
+
+.date {
+  float: right;
+}
+
+.contains:hover .desc {
+  top: 0px;
+}
+
+.contains:hover h1 {
+  padding-top: 3em;
+  font-size: 2em;
+  margin-top: -2.5em;
+}
+
+.arrow {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  background: #2C7261;
+  width: 25px;
+  height: 3px;
+  margin: .2em;
+}
+
+.arrow::after {
+  position: absolute;
+  top: -5px;
+  right: 0px;
+  content: '';
+  width: 15px;
+  height: 3px;
+  background: #2c7261;
+  -webkit-transform: rotate(35deg);
+  transform: rotate(35deg);
+}
+
+.arrow::before {
+  position: absolute;
+  top: 5px;
+  right: 0px;
+  content: '';
+  width: 15px;
+  height: 3px;
+  background: #2c7261;
+  -webkit-transform: rotate(-35deg);
+  transform: rotate(-35deg);
+}

@@ -1,34 +1,32 @@
-<%= form_with(model: post, local: true) do |form| %>
+<body class="ui container" id="b">
+  <%= form_with(model: post, local: true) do |form| %>
   <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+  <div id="error_explanation">
+    <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-      <ul>
+    <ul>
       <% post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <li><%= message %></li>
       <% end %>
-      </ul>
-    </div>
+    </ul>
+  </div>
   <% end %>
 
-    <%= form.hidden_field :user_id, value: current_user.id %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :post_title %>
+  <%= form.hidden_field :user_id, value: current_user.id %>
+  <div class="form">
+    <form class="login-form">
+    <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title, id: :post_title, class: :new_input %>
+      <p></p>
+      <%= form.label :context %>
+      <%= form.text_area :context, id: :post_context, class: :new_input  %>
+      <p></p>
+      <%= form.label :image %>
+      <%= form.text_area :image, id: :post_image, class: :new_input  %>
+    </div>
+    <%= form.submit "Sumbit", :class => "actions" %>
+  </form>
   </div>
-
-  <div class="field">
-    <%= form.label :context %>
-    <%= form.text_area :context, id: :post_context %>
-  </div>
-
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.text_area :image, id: :post_image %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+  <% end %>
+</body>

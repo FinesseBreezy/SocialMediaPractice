@@ -1,10 +1,33 @@
-<%= current_user.name %>
-    <% @posts.each do |post| %>
-    <%= post.title %>
-    <%= post.context %>
-    <%= post.image %>
-    <%= link_to 'Show', post %>
-    <%= link_to 'Edit', edit_post_path(post) %>
-    <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-    <% end %>
-<%= link_to 'New Post', new_post_path %>
+<p id="notice"><%= notice %></p>
+<body class="ui contianer" id="b" style="text-align: center;">
+  <h1></h1>
+  <div class="wrapper">
+          <%=image_tag(@profile_picture, :class => "image--cover")%>
+          </div>
+  <h1>Posts</h1>
+  <div class="back">
+    <%= link_to 'New Post', new_post_path, :class => "ui blue button", :style => "width: 100px; font-size: 12px;" %>
+    <div class="bod">
+      <% @posts.each do |post| %>
+      <div class="contains" style="background: url(<%= post.image %>), linear-gradient(#B333D9, #33CAD9);">
+        <h1><%= post.title %></h1>
+        <div class="desc">
+          <span>Today is</span><span class="date">14/06/2015</span>
+          <p><%= post.context %></p>
+
+          <% if post[:user_id] == current_user.id %>
+          <%= link_to(post) do %>
+          <%=image_tag("view.png")%>
+          <% end %>
+          <%= link_to(edit_post_path(post)) do %>
+          <%=image_tag("edit.png")%>
+          <% end %>
+          <%= link_to(post, method: :delete, data: { confirm: 'Are you sure?' }) do %>
+          <%=image_tag("bin.png")%>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </body>

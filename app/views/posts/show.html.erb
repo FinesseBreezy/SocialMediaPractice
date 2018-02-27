@@ -1,24 +1,26 @@
 <p id="notice"><%= notice %></p>
+<body class="ui contianer" id="b" style="text-align: center;">
+  <h1></h1>
+  <h1></h1>
+  <h1>Post</h1>
+  <span class="date">14/06/2015</span>
+  <p> </p>
+  <%= link_to(edit_post_path(@post)) do %>
+  <%=image_tag("edit.png")%>
+  <% end %>
+  <%= link_to(@post, method: :delete, data: { confirm: 'Are you sure?' }) do %>
+  <%=image_tag("bin.png")%>
+  <% end %>
+  <% if @post.image %>
+  <% begin %>
+  <%=image_tag(@post.image, style: :"position: relative; margin-left: 20px; width: 50%;")%>
+  <% rescue => ex %>
+  <%=image_tag('https://dummyimage.com/vga', style: :"position: relative;  width: 50%; margin-left: 20px;")%>
+  <% end %>
+  <% end %>
+  <div style="background: rgba(255,255,255,.3); width: 50%; margin: auto; text-align: center;">
 
-<p>
-  <strong>User:</strong>
-  <%= @post.user_id %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>Context:</strong>
-  <%= @post.context %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @post.image %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+    <h1><%= @post.title %></h1>
+    <h5><%= @post.context %></h5>
+  </div>
+</body>
