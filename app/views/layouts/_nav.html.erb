@@ -12,7 +12,7 @@
   <div class="right menu">
     <div class="item">
       <div class="ui transparent icon input">
-        <%= form_tag posts_path, :method => 'get' do%>
+        <%= form_tag profiles_path, :method => 'get' do%>
         <%= text_field_tag :search, params[:search], :type => "text", :placeholder => "Search"%>
         <%= submit_tag "Search", :class => "search link icon" %>
       </div>

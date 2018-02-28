@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.search(params[:search]).order(:created_at)
+    @posts = Post.all
   end
 
   # GET /posts/1
@@ -66,11 +66,7 @@ class PostsController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_post
-    begin
-      @post = Post.find(params[:id])
-    rescue
-      redirect_to '/posts'
-    end
+    @post = Post.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

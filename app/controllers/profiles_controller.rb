@@ -1,4 +1,7 @@
 class ProfilesController < ApplicationController
+  def index
+    @query_user = Profile.search(params[:search]).order(:created_at)
+  end
   def show
     begin
       @user = User.find(params[:id])

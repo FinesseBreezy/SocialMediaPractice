@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+<body class="ui contianer" id="b" style="text-align: center;">
+  <h1></h1>
+  <h1>USERS</h1>
+    <div class="bod" style="text-align:center;">
+      <table style="text-align:center;">
+      <% @query_user.each do |name| %>
+        <tr>
+        <% begin %>
+        <th><%=image_tag(@profile_picture, :class => "image--cover-users")%></th>
+        <th><h1 style="margin: 0px;"><%= link_to name.name, profile_path(name.id) %></h1></th>
+        <% rescue %>
+        <th><img src="https://static.knackforge.in/sites/default/files/default_images/dummy_5.png", class="image--cover-users"></th>
+        <th><h1 style="margin: 0px;"><%= link_to name.name, profile_path(name.id) %></h1></th>
+        <% end %>
+      </tr>
+      </div>
+      <% end %>
+    </table>
+    </div>
+  </body>
