@@ -4,13 +4,17 @@
   <div class="wrapper">
     <% begin %>
     <%=image_tag(@profile_picture, :class => "image--cover")%>
+    <h1 style="margin: 0px;"><%= @search_user.name %></h1>
     <% rescue %>
     <img src="https://static.knackforge.in/sites/default/files/default_images/dummy_5.png", class="image--cover">
+    <h1 style="margin: 0px;"><%= @search_user.name %></h1>
     <% end %>
   </div>
   <h1>Posts</h1>
   <div class="back">
+    <% if @search_user.id == current_user.id %>
     <%= link_to 'New Post', new_post_path, :class => "ui blue button", :style => "width: 100px; font-size: 12px;" %>
+    <% end %>
     <div class="bod">
       <% @posts.each do |post| %>
       <div class="contains" style="background: url(<%= post.image %>), linear-gradient(#B333D9, #33CAD9);">
