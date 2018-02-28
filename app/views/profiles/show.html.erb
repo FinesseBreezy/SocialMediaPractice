@@ -2,8 +2,12 @@
 <body class="ui contianer" id="b" style="text-align: center;">
   <h1></h1>
   <div class="wrapper">
-          <%=image_tag(@profile_picture, :class => "image--cover")%>
-          </div>
+    <% begin %>
+    <%=image_tag(@profile_picture, :class => "image--cover")%>
+    <% rescue %>
+    <img src="https://static.knackforge.in/sites/default/files/default_images/dummy_5.png", class="image--cover">
+    <% end %>
+  </div>
   <h1>Posts</h1>
   <div class="back">
     <%= link_to 'New Post', new_post_path, :class => "ui blue button", :style => "width: 100px; font-size: 12px;" %>

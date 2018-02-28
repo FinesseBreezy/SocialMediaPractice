@@ -1,7 +1,8 @@
 class ProfilesController < ApplicationController
   def show
-    @current_user = current_user
-    @posts = current_user.posts
-    @profile_picture = current_user.profile_picture
+    @user = User.find(params[:id])
+    @current_user = @user
+    @posts = @user.posts
+    @profile_picture = @user.profile_picture
   end
 end
