@@ -6,6 +6,7 @@
   <% if user_signed_in? %>
   <%= link_to 'Sign Out', destroy_user_session_path, :class => "item", :method => 'delete' %>
   <%= link_to 'Profile', profile_path(current_user.id), :class => "item" %>
+  <%= link_to 'Store', departments_path, :class => "item" %>
   <% else %>
   <%= link_to 'Sign In', new_user_session_path, :class => "item" %>
   <% end %>
@@ -17,6 +18,7 @@
         <%= submit_tag "Search", :class => "search link icon" %>
       </div>
     </div>
+    <%= link_to 'Cart', carts_path, :class => "item" %>
   </div>
   <% end %>
 </div>

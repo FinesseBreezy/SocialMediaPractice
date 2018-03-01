@@ -1,0 +1,8 @@
+<h1></h1>
+<h1></h1>
+
+<% @cart.each do |cart_item| %>
+<p><%= cart_item.name %>
+  <br />
+$ - <%= cart_item.price %></p>
+<% end %>

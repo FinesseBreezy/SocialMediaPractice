@@ -1,0 +1,18 @@
+<h1></h1>
+<h1></h1>
+<h1>Items<h1>
+<%= @item.name %>
+<br />
+<%= link_to 'Edit', edit_department_item_path(@item.id) %>
+<br />
+<%= link_to 'Delete', department_item_path(@item), method: :delete %>
+<br />
+<%= link_to 'Leave a Comment', new_item_comment_path(@item.id) %>
+<br />
+<br />
+<%= link_to 'Go Back', department_items_path %>
+<%= link_to 'New Item', new_department_item_path(@department) %>
+
+<% @item.comments.each do |comment| %>
+  <%= render 'comments/comments', { comment: comment } %>
+<% end %>

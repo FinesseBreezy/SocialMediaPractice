@@ -1,0 +1,18 @@
+<h1></h1>
+<h1></h1>
+<h1>Items<h1>
+  <% @message = 'Add to Cart' %>
+<% @items.each do |item| %>
+  <br />
+  <p><%= item.name %> <%= link_to '- View Item', department_item_path(@department, item)%></p>
+  <br />
+  <%= link_to (item.selected ? "Remove From Cart" : "Add to Cart"), flop_item_path(item, num: @department) %>
+  <br />
+  <%= link_to 'Edit', edit_department_item_path(@department, item.id) %>
+  <br />
+  <%= link_to 'Delete', department_item_path(@department, item), method: :delete %>
+<% end %>
+<br />
+<br />
+<%= link_to 'Go Back', departments_path %>
+<%= link_to 'New Item', new_department_item_path(@department) %>
